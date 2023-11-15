@@ -111,8 +111,8 @@ SLIDER
             navOffsetHorizontal:0,
             navOffsetVertical:80,
             shadow:undefined,
-            fullWidth:"on",
-            fullScreen:"on"
+            fullWidth:"off",
+            fullScreen:"off"
     });
 })(jQuery);
 /******************************************************************************************************************************
