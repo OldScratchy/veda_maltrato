@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEDA ARBITRARIA DE MALTRATO</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #countdown {
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div id="countdown"></div>
+
+    <script>
+        // Definir la fecha límite (sábado 18 a las 23:59hs)
+        const deadline = new Date("2023-11-18T23:59:00").getTime();
+
+        // Actualizar el contador cada segundo
+        const x = setInterval(function() {
+            // Obtener la fecha y hora actual
+            const now = new Date().getTime();
+
+            // Calcular la diferencia entre la fecha límite y la fecha actual
+            const distance = deadline - now;
+
+            // Calcular días, horas, minutos y segundos restantes
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Mostrar el contador en el elemento con id "countdown"
+            document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            // Si el contador llega a cero, mostrar un mensaje
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "¡El tiempo ha expirado!";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
